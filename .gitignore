@@ -1,0 +1,22 @@
+# Test binaries
+test/test_order
+test/test_orderbook
+test/test_matchingengine
+test/test_integration
+
+# IDE files
+.vscode/
+
+# Build artifacts
+*.o
+*.obj
+*.exe
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*~
