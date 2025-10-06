@@ -175,12 +175,12 @@ auto cancelled = engine.cancel_order(sellOrder->get_order_id(), "AAPL");
 
 ## 💼 Skills Demonstrated
 
-**C++ Expertise**: Modern C++20, STL containers, smart pointers, RAII
-**Data Structures**: Maps, deques, hash maps for optimal performance
-**Algorithm Design**: Price-time priority matching, O(log n) operations
-**Memory Management**: Leak-free code with automatic cleanup
-**Testing**: Comprehensive unit and integration test coverage
-**Build Systems**: Make-based compilation and testing workflow
+**C++ Expertise**: Modern C++20, STL containers, smart pointers, RAII <br>
+**Data Structures**: Maps, deques, hash maps for optimal performance <br>
+**Algorithm Design**: Price-time priority matching, O(log n) operations <br>
+**Memory Management**: Leak-free code with automatic cleanup <br>
+**Testing**: Comprehensive unit and integration test coverage <br>
+**Build Systems**: Make-based compilation and testing workflow <br>
 
 ---
 
