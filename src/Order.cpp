@@ -104,9 +104,6 @@ void Order::print_order() {
         case OrderStatus::CANCELLED:
             // Removed std::cout statement
             break;
-        case OrderStatus::REJECTED:
-            // Removed std::cout statement
-            break;
     }
         // Removed std::cout statement
 }

@@ -1,4 +1,7 @@
-# Test binaries
+# Build directory (CMake)
+build/
+
+# Test binaries (legacy)
 test/test_order
 test/test_orderbook
 test/test_matchingengine

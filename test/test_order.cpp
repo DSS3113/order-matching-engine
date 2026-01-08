@@ -1,44 +1,35 @@
-#include "../src/Order.hpp"
-#include <cassert>
-#include <iostream>
+#include <gtest/gtest.h>
+#include "Order.hpp"
 
-void test_order_creation() {
+TEST(OrderTest, Creation) {
     Order order("AAPL", Side::BUY, 100, 150.0);
-    assert(order.get_instrument() == "AAPL");
-    assert(order.is_buy());
-    assert(!order.is_sell());
-    assert(order.get_quantity() == 100);
-    assert(order.get_price() == 150.0);
-    assert(order.get_status() == OrderStatus::NEW);
-    std::cout << "test_order_creation passed\n";
+    EXPECT_EQ(order.get_instrument(), "AAPL");
+    EXPECT_TRUE(order.is_buy());
+    EXPECT_FALSE(order.is_sell());
+    EXPECT_EQ(order.get_quantity(), 100);
+    EXPECT_DOUBLE_EQ(order.get_price(), 150.0);
+    EXPECT_EQ(order.get_status(), OrderStatus::NEW);
 }
 
-void test_order_fill() {
+TEST(OrderTest, Fill) {
     Order order("AAPL", Side::BUY, 100, 150.0);
+
     bool filled = order.fill(50, 150.0);
-    assert(filled);
-    assert(order.get_remaining_quantity() == 50);
-    assert(order.get_status() == OrderStatus::PARTIAL_FILLED);
+    EXPECT_TRUE(filled);
+    EXPECT_EQ(order.get_remaining_quantity(), 50);
+    EXPECT_EQ(order.get_status(), OrderStatus::PARTIAL_FILLED);
+
     filled = order.fill(50, 150.0);
-    assert(filled);
-    assert(order.get_remaining_quantity() == 0);
-    assert(order.get_status() == OrderStatus::FILLED);
-    std::cout << "test_order_fill passed\n";
+    EXPECT_TRUE(filled);
+    EXPECT_EQ(order.get_remaining_quantity(), 0);
+    EXPECT_EQ(order.get_status(), OrderStatus::FILLED);
 }
 
-void test_order_cancel() {
+TEST(OrderTest, Cancel) {
     Order order("AAPL", Side::BUY, 100, 150.0);
-    bool cancelled = order.cancel();
-    assert(cancelled);
-    assert(order.get_status() == OrderStatus::CANCELLED);
-    assert(order.get_remaining_quantity() == 0);
-    std::cout << "test_order_cancel passed\n";
-}
 
-int main() {
-    test_order_creation();
-    test_order_fill();
-    test_order_cancel();
-    std::cout << "All Order tests passed!\n";
-    return 0;
+    bool cancelled = order.cancel();
+    EXPECT_TRUE(cancelled);
+    EXPECT_EQ(order.get_status(), OrderStatus::CANCELLED);
+    EXPECT_EQ(order.get_remaining_quantity(), 0);
 }
